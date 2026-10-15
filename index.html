@@ -50,25 +50,25 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
 </head>
 <body>
 <div id="wrap"><canvas id="gl" width="2990" height="1598" style="touch-action: none;"></canvas><canvas id="ov" width="2990" height="1598"></canvas></div>
-<div id="panel">
+<div id="panel" class="folded">
   <div class="ptablab">视图</div>
-  <div id="pTabs" class="pbtns"><button class="ptab">单圈环流</button><button class="ptab on">三圈环流模式图</button><button class="ptab">真实大气运动图</button></div>
+  <div id="pTabs" class="pbtns"><button class="ptab">单圈环流</button><button class="ptab">三圈环流模式图</button><button class="ptab on">真实大气运动图</button></div>
   <div class="prow" data-solo="" style="display: none;"><span class="plab">自转</span><label class="pchk"><input id="pSpin" type="checkbox" checked="checked"><span>地球自转</span></label></div>
   <div class="prow" data-solo="" style="display: none;"><span class="plab">海陆</span><label class="pchk"><input id="pLand" type="checkbox"><span>海陆分布</span></label></div>
-  <div class="prow"><span class="plab">显示</span><button id="pWind" class="pbtn on">地表风带</button><button id="pBelt" class="pbtn on">气压带</button></div>
+  <div class="prow" data-show="" style="display: none;"><span class="plab">显示</span><button id="pWind" class="pbtn on">地表风带</button><button id="pBelt" class="pbtn on">气压带</button><button id="pWName" class="pbtn on">风带名称</button></div>
   <div class="prow"><span class="plab">视角</span><button id="pReset" class="pbtn">恢复视图</button></div>
-  <div class="prow" data-pat="" style="display: flex;"><span class="plab">季节</span><button id="pDemo" class="pbtn">季节演示</button></div>
-  <div class="prow" data-jet="" style="display: flex;"><span class="plab">急流</span><label class="pchk"><input id="pJet" type="checkbox"><span>高空急流</span></label></div>
-  <div class="prow" data-circ="" style="display: flex;"><span class="plab">环流</span><label class="pchk"><input id="pCirc" type="checkbox" checked="checked"><span>三圈环流</span></label></div>
-  <div class="prow" data-pat="" style="display: flex;"><span class="plab"></span><input id="pSeason" class="pslider" type="range" min="0" max="1" step="0.002" value="0.25"><span id="pSeasonVal" class="pval">春季</span></div>
-  <div class="slabels" data-pat="" style="display: flex;"><span>冬</span><span class="on">春</span><span>夏</span><span>秋</span><span>冬</span></div>
-  <div class="prow" data-dyn="" style="display: none;"><span class="plab">月份</span><select id="pMon" class="psel"><option value="0" selected="selected">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></div>
-  <div class="prow" data-dyn="" style="display: none;"><span class="plab">高度</span><select id="pLev" class="psel"><option value="0" selected="selected">1000 hPa</option><option value="1">500 hPa</option><option value="2">200 hPa</option></select></div>
-  <div class="prow" data-dyn="" id="pSlpRow" style="display: none;"><span class="plab">气压</span><label class="pchk"><input id="pSlp" type="checkbox"><span id="pSlpLab">1月海平面气压<br>与风向图</span></label></div>
-  <div class="prow" id="pPlanRow" style="display: none;"><span class="plab">平面</span><label class="pchk"><input id="pPlan" type="checkbox"><span>平面图</span></label></div>
+  <div class="prow" data-pat="" style="display: none;"><span class="plab">季节</span><button id="pDemo" class="pbtn">季节演示</button></div>
+  <div class="prow" data-jet="" style="display: none;"><span class="plab">急流</span><label class="pchk"><input id="pJet" type="checkbox"><span>高空急流</span></label></div>
+  <div class="prow" data-circ="" style="display: none;"><span class="plab">环流</span><label class="pchk"><input id="pCirc" type="checkbox" checked="checked"><span>三圈环流</span></label></div>
+  <div class="prow" data-pat="" style="display: none;"><span class="plab"></span><input id="pSeason" class="pslider" type="range" min="0" max="1" step="0.002" value="0.25"><span id="pSeasonVal" class="pval">春季</span></div>
+  <div class="slabels" data-pat="" style="display: none;"><span>冬</span><span class="on">春</span><span>夏</span><span>秋</span><span>冬</span></div>
+  <div class="prow" data-dyn="" style="display: flex;"><span class="plab">月份</span><select id="pMon" class="psel"><option value="0">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6" selected="selected">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></div>
+  <div class="prow" data-dyn="" style="display: flex;"><span class="plab">高度</span><select id="pLev" class="psel"><option value="0" selected="selected">1000 hPa</option><option value="1">500 hPa</option><option value="2">200 hPa</option></select></div>
+  <div class="prow" data-dyn="" id="pSlpRow" style="display: flex;"><span class="plab">气压</span><label class="pchk"><input id="pSlp" type="checkbox" checked="checked"><span id="pSlpLab">7月海平面气压<br>与风向图</span></label></div>
+  <div class="prow" id="pPlanRow" style="display: flex;"><span class="plab">平面</span><label class="pchk"><input id="pPlan" type="checkbox" checked="checked"><span>平面图</span></label></div>
 </div>
-<button id="pFoldTab" title="收起 / 展开视图面板">‹</button>
-<div id="pTip" style="display: none;"></div>
+<button id="pFoldTab" title="展开视图面板">›</button>
+<div id="pTip" style="display: none; left: 1272.5px; top: 408px;">1018 hPa（海平面气压）</div>
 <script>
 "use strict";
 /* ================= 基础数学（列主序） ================= */
@@ -624,6 +624,7 @@ let lastT=0,simT=0,holdT=false;
 let mode=2;                /* 视图模式：0=三圈环流模式图，1=真实大气运动图，2=单圈环流（默认） */
 let spinOn=false;          /* 地球自转开关（按页面设定：模式图/真实图默认自转，单圈环流页默认不自转） */
 let showWind=true;         /* 地表风带箭头显示开关 */
+let showWindName=true;     /* 风带名称显示开关（模式图独立按键控制，与风带箭头开关互不联动） */
 let showBelts=true;        /* 地表气压带（填充+标注）显示开关 */
 let SEASON_D=0;            /* 当前显示的季节偏移（°）——由 updateSeasonAnim 从 SEASON_T 平滑缓动逼近；
                               风带/气压带/三圈环流几何同向同步移动（见 seasonLats） */
@@ -819,15 +820,13 @@ function buildDense(){
 const LAT_LINES=[0,30,-30,60,-60];
 const LAT_LBL_LON=62;             /* 纬度标注锚定经度（观察窗右侧，与气压带/风带名称错开成列） */
 const latLineName=l=>l>0?(l+'°N'):(l<0?((-l)+'°S'):'0°');
-/* --- 风带名称：南北半球各三条（信风带 / 盛行西风带 / 极地东风带），与「地表风带」箭头同键显隐 --- */
-/* dx：屏幕水平偏移（px）。极区纬度压缩使 ±75°（东风带）与 ±85°（极地高气压带标注）投影几乎同高，
-   仅靠经度错开不够，极地东风带名称额外右移避开气压带名称 */
+/* --- 风带名称：南北半球各三条（信风带 / 盛行西风带 / 极地东风带） --- */
 const WIND_BAND_NAMES=[
-  {lat: 15,name:'东北信风带',dx:0},{lat:-15,name:'东南信风带',dx:0},
-  {lat: 45,name:'盛行西风带',dx:0},{lat:-45,name:'盛行西风带',dx:0},
-  {lat: 75,name:'极地东风带',dx:92},{lat:-75,name:'极地东风带',dx:92}
+  {lat: 15,name:'东北信风带'},{lat:-15,name:'东南信风带'},
+  {lat: 45,name:'盛行西风带'},{lat:-45,name:'盛行西风带'},
+  {lat: 75,name:'极地东风带'},{lat:-75,name:'极地东风带'}
 ];
-const WIND_NAME_LON=26;           /* 风带名称锚定经度（观察窗右侧偏内，气压带名称在 -30° 侧，互不遮挡） */
+const WIND_NAME_LON=26;           /* 风带名称锚定方位角（相机经线以东 26°，气压带名称在 -30° 侧，互不遮挡） */
 
 /* --- 海平面气压与风图：主要气压中心名称（[lat,lon,名称]，SLP_CENTERS[0]=1月 [1]=7月）
    坐标为 NCEP 1981-2010 月均气候场的实际气压极值核心（非课本示意位置），
@@ -843,47 +842,231 @@ const SLP_CENTERS=[
 const SLP_STOPS=[[980,[196,38,38]],[992,[228,74,48]],[998,[243,126,64]],[1002,[250,178,88]],
   [1006,[252,222,140]],[1010,[248,240,178]],[1014,[228,236,196]],[1018,[188,224,226]],
   [1022,[136,198,232]],[1026,[84,150,216]],[1034,[52,100,186]],[1040,[36,72,160]]];
-/* --- 真实大气运动图·平面世界图：等距圆柱投影铺满画布（气压设色+风向箭头+纬线+气压中心标注） ---
-   支持鼠标滚轮以光标为锚缩放（1×–12×）、按住拖拽平移；缩放时文字与线宽保持屏幕像素大小 */
+/* --- 真实大气运动图·平面世界图：Winkel tripel 投影（中央经线 160°E，太平洋居中） ---
+   Aitoff 投影与等距圆柱投影（标准纬线 50°28′，cosφ₁=2/π）的算术平均：
+     α=acos(cosφ·cos(Δλ/2))，sinc=sinα/α
+     X=½(Δλ·cosφ₁ + 2cosφ·sin(Δλ/2)/sinc)，Y=½(φ + sinφ/sinc)
+   中央经线与赤道为直线；纬线为曲线（向极收缩）、经线为曲线（凹向中央经线）；
+   极线为水平线段（半宽 1），图廓为对称的透镜形（赤道最宽 2·WT_XM≈5.14）。
+   逆解无解析式 → 投影空间规则网格上 Newton 迭代建查找表，逐像素双线性插值重排等距圆柱贴图
+   （每月一次，缓存）；滚轮缩放/拖拽平移不变 */
+const WT_LON0=160;                     /* 中央经线（160°E，太平洋居中） */
+const PLAN_S=0.9;                      /* 平面图整体缩放（画布适配后再乘，1=铺满可用区域） */
+const WT_C1=2/Math.PI;                 /* cosφ₁=2/π=0.6366198（标准纬线 50°28′） */
+const WT_XM=Math.PI*(1+WT_C1)/2;       /* 图廓半宽（赤道处，A=1 单位）≈2.5708 */
+const DP_HT=(Math.PI/2)/WT_XM;         /* 图廓半高（归一化）≈0.6110 */
+function wtPN(p,lam){                  /* 正解+解析雅可比：φ、Δλ（弧度）→[X,Y,∂X/∂φ,∂X/∂λ,∂Y/∂φ,∂Y/∂λ] */
+  const u=lam/2,cp=Math.cos(p),sp=Math.sin(p),cu=Math.cos(u),su=Math.sin(u);
+  let c=cp*cu;if(c>1)c=1;else if(c<-1)c=-1;
+  const al=Math.acos(c),sa=Math.sqrt(Math.max(0,1-c*c));
+  const S=al<1e-7?1-al*al/6:Math.sin(al)/al;         /* sinc α */
+  const f1=2*cp*su/S,f2=sp/S;
+  const kk=al<1e-7?-1/3:(Math.cos(al)-S)/(al*sa);    /* (dS/dα)/sinα，α→0 时极限 −1/3 */
+  const Sp=kk*sp*cu,Sl=kk*cp*su/2;                   /* ∂S/∂φ、∂S/∂λ */
+  const f1p=(-2*sp*su-f1*Sp)/S,f1l=(cp*cu-f1*Sl)/S;
+  const f2p=(cp-f2*Sp)/S,f2l=(-f2*Sl)/S;
+  return [0.5*(lam*WT_C1+f1),0.5*(p+f2),0.5*f1p,0.5*(WT_C1+f1l),0.5*(1+f2p),0.5*f2l];
+}
+function wtXY(dl,lat){                 /* 正解：Δλ(度，相对中央经线)、纬度(度) → [X,Y]（A=1 单位） */
+  const r=wtPN(lat*D2R,dl*D2R);return [r[0],r[1]];
+}
+function projWT(lon,lat){              /* 正解：经纬度(度)→[x,y] 归一化（x∈[-1,1]，y 向上） */
+  const r=wtPN(lat*D2R,(((lon-WT_LON0+540)%360)-180)*D2R);
+  return [r[0]/WT_XM,r[1]/WT_XM];
+}
+function wtInvRaw(X,Y){                /* Newton 逆解（不限图廓，图廓外给连续延拓）→[φ,Δλ]（弧度、未回绕） */
+  let p=Math.max(-Math.PI/2,Math.min(Math.PI/2,Y));
+  let lam=Math.max(-3*Math.PI,Math.min(3*Math.PI,2*X/(1+WT_C1)));
+  for(let it=0;it<60;it++){
+    const f=wtPN(p,lam),r0=X-f[0],r1=Y-f[1];
+    if(Math.abs(r0)<1e-11&&Math.abs(r1)<1e-11)return [p,lam];
+    const det=f[2]*f[5]-f[3]*f[4];
+    if(!(Math.abs(det)>1e-14))break;
+    p+=(r0*f[5]-r1*f[3])/det;
+    lam+=(f[2]*r1-f[4]*r0)/det;
+    if(!isFinite(p)||!isFinite(lam))return null;
+  }
+  const f=wtPN(p,lam);
+  return (Math.abs(X-f[0])<1e-7&&Math.abs(Y-f[1])<1e-7)?[p,lam]:null;
+}
+function unprojWT(x,y){                /* 逆解：[x,y]（归一化）→{lat,lon}（度）；图廓外返回 null */
+  const r=wtInvRaw(x*WT_XM,y*WT_XM);
+  if(!r)return null;
+  const p=r[0],lam=r[1];
+  if(Math.abs(p)>Math.PI/2+1e-9||Math.abs(lam)>Math.PI+1e-9)return null;   /* 图廓：|φ|≤90° 且 |Δλ|≤180° */
+  let L=WT_LON0+lam/D2R;L=((L+180)%360+360)%360-180;
+  return {lat:p/D2R,lon:L===-180?180:L};
+}
 let planZoom=1,planPan={x:0,y:0},planDrag=null;
 function planReset(){planZoom=1;planPan={x:0,y:0};planDrag=null;}
+/* Winkel tripel 逆投影查找表：投影空间 8px 规则网格 Newton 逆解（图廓外为连续延拓），供逐像素双线性插值 */
+const WARP_PLAN={},WARP_W=2048,WT_ST=8;
+let WT_LUT=null;
+function wtLUT(){
+  if(WT_LUT)return WT_LUT;
+  const oh=Math.round(WARP_W*DP_HT);
+  const nx=Math.ceil(WARP_W/WT_ST)+1,ny=Math.ceil(oh/WT_ST)+1;
+  const la=new Float32Array(nx*ny),lo=new Float32Array(nx*ny);
+  for(let j=0;j<ny;j++){
+    const Y=(DP_HT-2*DP_HT*(j*WT_ST+0.5)/oh)*WT_XM;
+    for(let i=0;i<nx;i++){
+      const r=wtInvRaw((-1+2*(i*WT_ST+0.5)/WARP_W)*WT_XM,Y),k=j*nx+i;
+      la[k]=r?r[0]/D2R:NaN;lo[k]=r?r[1]/D2R:NaN;      /* 纬度(度)、经度(度，未回绕，跨 ±180° 连续) */
+    }
+  }
+  WT_LUT={nx:nx,ny:ny,oh:oh,la:la,lo:lo};
+  return WT_LUT;
+}
+/* 等距圆柱贴图 → Winkel tripel 投影重排（每月一次，缓存；查找表插值 + 图廓软化抗锯齿） */
+function getWarpPlan(m){
+  if(WARP_PLAN[m])return WARP_PLAN[m];
+  const lut=wtLUT(),nx=lut.nx,ny=lut.ny,LA=lut.la,LO=lut.lo,oh=lut.oh,ow=WARP_W;
+  const src=SLP_PLAN[m],sw=src.width,sh=src.height;
+  const sg=src.getContext('2d').getImageData(0,0,sw,sh).data;
+  const out=document.createElement('canvas');out.width=ow;out.height=oh;
+  const og=out.getContext('2d'),im=og.createImageData(ow,oh),od=im.data;
+  const invST=1/WT_ST;
+  for(let j=0;j<oh;j++){
+    const fv=j*invST,j0=Math.min(ny-2,Math.floor(fv)),tv=fv-j0;
+    for(let i=0;i<ow;i++){
+      const k=(j*ow+i)*4;
+      const fu=i*invST,i0=Math.min(nx-2,Math.floor(fu)),tu=fu-i0;
+      const A=j0*nx+i0,B=A+1,C2=A+nx,D2=C2+1;
+      const w00=(1-tu)*(1-tv),w10=tu*(1-tv),w01=(1-tu)*tv,w11=tu*tv;
+      let lat=LA[A]*w00+LA[B]*w10+LA[C2]*w01+LA[D2]*w11;
+      let lon=LO[A]*w00+LO[B]*w10+LO[C2]*w01+LO[D2]*w11;
+      if(!(lat>=-90.2&&lat<=90.2)){        /* 查找表缺值（Newton 未收敛）：该像素直接逆解 */
+        const r=unprojWT(-1+2*(i+0.5)/ow,DP_HT-2*DP_HT*(j+0.5)/oh);
+        if(!r){od[k+3]=0;continue;}
+        lat=r.lat;lon=r.lon;
+      }
+      /* 图廓判定：边缘经线 ±180°、极线 ±90° 处 1–2px 软化淡出 */
+      const eL=Math.min(1,Math.max(0,(180.05-Math.abs(lon))*2.9));
+      const eB=Math.min(1,Math.max(0,(90.05-Math.abs(lat))*2.9));
+      const edge=eL*eB;
+      if(edge<=0){od[k+3]=0;continue;}
+      /* 纬向压缩比（源纹素/输出像素）→ 高纬经向压缩处加宽采样盒，抑制摩尔纹 */
+      const comp=Math.abs(LO[B]-LO[A])*sw/360/WT_ST;
+      const spread=0.5*Math.min(2.2,comp);
+      const fx=(lon+WT_LON0+180)/360*sw-0.5,fy=(90-lat)/180*sh-0.5;   /* lon=Δλ → 绝对经度=Δλ+中央经线 */
+      let r0=0,g0=0,b0=0;
+      for(const off of [-spread,spread]){
+        const fxo=fx+off;
+        const iu=Math.floor(fxo),iv=Math.max(0,Math.min(sh-2,Math.floor(fy)));
+        const qfu=fxo-iu,qfv=fy-iv;
+        const iu0=((iu%sw)+sw)%sw,iu1=iu0+1>=sw?0:iu0+1,iv1=iv+1;
+        const a=(iv*sw+iu0)*4,b=(iv*sw+iu1)*4,c2=(iv1*sw+iu0)*4,d2=(iv1*sw+iu1)*4;
+        const s00=(1-qfu)*(1-qfv),s10=qfu*(1-qfv),s01=(1-qfu)*qfv,s11=qfu*qfv;
+        r0+=sg[a]*s00+sg[b]*s10+sg[c2]*s01+sg[d2]*s11;
+        g0+=sg[a+1]*s00+sg[b+1]*s10+sg[c2+1]*s01+sg[d2+1]*s11;
+        b0+=sg[a+2]*s00+sg[b+2]*s10+sg[c2+2]*s01+sg[d2+2]*s11;
+      }
+      od[k]  =r0*0.5;
+      od[k+1]=g0*0.5;
+      od[k+2]=b0*0.5;
+      od[k+3]=255*edge;
+    }
+  }
+  og.putImageData(im,0,0);
+  /* 轮廓羽化：模糊后的 alpha 与原 alpha 相乘，图廓边界 1–2px 软化抗锯齿 */
+  const feather=document.createElement('canvas');feather.width=ow;feather.height=oh;
+  const fgg=feather.getContext('2d');
+  fgg.filter='blur(1.1px)';fgg.drawImage(out,0,0);
+  fgg.globalCompositeOperation='destination-in';fgg.filter='none';
+  fgg.drawImage(out,0,0);
+  /* mip 链：绘制缩放比 <0.5/<0.25 时换用减半贴图，避免 drawImage 缩小的摩尔纹 */
+  const half=document.createElement('canvas');half.width=ow>>1;half.height=oh>>1;
+  const hg=half.getContext('2d');hg.imageSmoothingEnabled=true;hg.imageSmoothingQuality='high';
+  hg.drawImage(feather,0,0,half.width,half.height);
+  const quarter=document.createElement('canvas');quarter.width=ow>>2;quarter.height=oh>>2;
+  const qg=quarter.getContext('2d');qg.imageSmoothingEnabled=true;qg.imageSmoothingQuality='high';
+  qg.drawImage(half,0,0,quarter.width,quarter.height);
+  WARP_PLAN[m]={full:feather,half:half,quarter:quarter};
+  /* 空闲时预热另一月份（切月不卡顿） */
+  const other=(m===0)?6:0;
+  if(!WARP_PLAN[other])setTimeout(()=>{try{getWarpPlan(other);}catch(e){}},80);
+  return WARP_PLAN[m];
+}
 function drawPlanar(){
   ctx.setTransform(DPR,0,0,DPR,0,0);
   ctx.clearRect(0,0,W,H);
   ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
-  const mw=Math.min(W,H*2),mh=mw/2,x0=(W-mw)/2,y0=(H-mh)/2;
+  /* 图廓按投影宽高比（2 : 2·DP_HT）适配画布居中，再按 PLAN_S 整体缩放（90%） */
+  const mw=Math.min(W,H/DP_HT)*PLAN_S,mh=mw*DP_HT,x0=(W-mw)/2,y0=(H-mh)/2;
   /* 缩放/平移变换：屏幕坐标 = 中心 + 平移 + (世界坐标-中心)×zoom；文字与线宽除以 zoom 保持屏幕大小 */
   const zk=planZoom;
   ctx.translate(W/2+planPan.x,H/2+planPan.y);ctx.scale(zk,zk);ctx.translate(-W/2,-H/2);
-  ctx.drawImage(SLP_PLAN[(curMon===6)?6:0],x0,y0,mw,mh);
-  /* 纬线（0/±30/±60）突出显示：深色描边打底 + 白色亮线（赤道最粗最亮），与边框区分 */
-  ctx.strokeStyle='rgba(255,255,255,0.22)';ctx.lineWidth=1/zk;
-  ctx.strokeRect(x0,y0,mw,mh);
-  const planLat=(la,w0,a0)=>{
-    const y=y0+(90-la)/180*mh;
-    ctx.lineWidth=w0+2.2/zk;ctx.strokeStyle='rgba(10,22,44,'+(a0*0.5).toFixed(3)+')';
-    ctx.beginPath();ctx.moveTo(x0,y);ctx.lineTo(x0+mw,y);ctx.stroke();
-    ctx.lineWidth=w0;ctx.strokeStyle='rgba(255,255,255,'+a0.toFixed(3)+')';
-    ctx.beginPath();ctx.moveTo(x0,y);ctx.lineTo(x0+mw,y);ctx.stroke();
+  const warped=getWarpPlan((curMon===6)?6:0);
+  const r=mw*zk/WARP_W;                     /* 绘制缩放比：选 mip 避免缩小走样 */
+  const tex=r>=0.5?warped.full:(r>=0.25?warped.half:warped.quarter);
+  ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+  ctx.save();ctx.beginPath();ctx.rect(x0,y0,mw,mh);ctx.clip();
+  ctx.drawImage(tex,x0,y0,mw,mh);
+  ctx.restore();
+  /* 投影坐标：图面 [x,y]（A=1）→ 屏幕像素；Δλ 相对中央经线 180°（太平洋居中）。
+     PXd 直接按经差计算（±180° 边缘经线不被回绕，可分别绘制左右图廓） */
+  const PXd=(dl,la)=>{
+    const p=wtXY(dl,la),xn=p[0]/WT_XM,yn=p[1]/WT_XM;
+    return [x0+(xn+1)/2*mw,y0+(DP_HT-yn)/(2*DP_HT)*mh];
   };
-  for(const la of [30,60,-30,-60])planLat(la,1.6/zk,0.9);
-  planLat(0,2.2/zk,0.95);
-  /* 纬度标注 */
-  ctx.font=(11/zk)+'px system-ui';ctx.fillStyle='rgba(255,255,255,0.78)';ctx.textAlign='left';
-  for(const la of [60,30,0,-30,-60]){
-    const y=y0+(90-la)/180*mh;
-    ctx.fillText(latLineName(la),x0+mw+6,y+4/zk);
+  const PX=(lo,la)=>PXd(((lo-WT_LON0+540)%360+360)%360-180,la);
+  const poly=(pts,close)=>{
+    ctx.beginPath();
+    pts.forEach((pt,i)=>{i?ctx.lineTo(pt[0],pt[1]):ctx.moveTo(pt[0],pt[1]);});
+    if(close)ctx.closePath();
+  };
+  const stroke2=(w0,a0)=>{
+    ctx.lineWidth=w0+2.2/zk;ctx.strokeStyle='rgba(10,22,44,'+(a0*0.5).toFixed(3)+')';ctx.stroke();
+    ctx.lineWidth=w0;ctx.strokeStyle='rgba(255,255,255,'+a0.toFixed(3)+')';ctx.stroke();
+  };
+  const N=180;
+  /* 经线：每 30° 淡显曲线（Winkel tripel 经线为弧线、凹向中央经线），中央经线 180° 加亮 */
+  for(let k=-6;k<=6;k++){
+    const dl=k*30,pts=[];
+    for(let i=0;i<=120;i++)pts.push(PXd(dl,-90+180*i/120));
+    poly(pts);
+    const ctr=dl===0;
+    ctx.lineWidth=(ctr?1.8:1.0)/zk;
+    ctx.strokeStyle='rgba(255,255,255,'+(ctr?0.42:0.16).toFixed(3)+')';
+    ctx.stroke();
   }
-  /* 气压中心名称（课本标注位置；白描边深色字） */
+  /* 纬线（0/±30/±60）圆弧突出显示：深色描边打底 + 白色亮线（赤道最粗最亮） */
+  const planLatArc=(la,w0,a0)=>{
+    const pts=[];
+    for(let i=0;i<=N;i++)pts.push(PXd(-180+360*i/N,la));
+    poly(pts);stroke2(w0,a0);
+  };
+  for(const la of [30,60,-30,-60])planLatArc(la,1.6/zk,0.9);
+  planLatArc(0,2.2/zk,0.95);
+  /* 图廓（透镜形）：右缘经线 Δλ=+180° 由南向北 + 左缘经线 Δλ=−180° 由北向南，
+     两缘在极点处收于 ±极线端点（极线为水平线段，由 closePath 闭合） */
+  ctx.beginPath();
+  for(let i=0;i<=N;i++){
+    const pt=PXd(180,-90+180*i/N);
+    i?ctx.lineTo(pt[0],pt[1]):ctx.moveTo(pt[0],pt[1]);
+  }
+  for(let i=0;i<=N;i++){const pt=PXd(-180,90-180*i/N);ctx.lineTo(pt[0],pt[1]);}
+  ctx.closePath();
+  ctx.lineWidth=1.2/zk;ctx.strokeStyle='rgba(255,255,255,0.3)';ctx.stroke();
+  /* 纬度标注：图廓右缘内侧（随投影边缘位置，避免与图例卡片重叠） */
+  ctx.font=(11/zk)+'px system-ui';ctx.textAlign='right';
+  for(const la of [60,30,0,-30,-60]){
+    const pt=PXd(180,la);
+    ctx.lineWidth=2.5/zk;ctx.strokeStyle='rgba(10,22,44,0.55)';
+    ctx.strokeText(latLineName(la),pt[0]-5/zk,pt[1]+4/zk);
+    ctx.fillStyle='rgba(255,255,255,0.85)';
+    ctx.fillText(latLineName(la),pt[0]-5/zk,pt[1]+4/zk);
+  }
+  /* 气压中心名称（课本标注位置；白描边深色字，锚定投影坐标） */
   const list=SLP_CENTERS[(curMon===6)?1:0];
   ctx.textAlign='center';ctx.font='600 '+(13/zk)+'px system-ui';
   for(const c of list){
-    const x=x0+(c[1]+180)/360*mw,y=y0+(90-c[0])/180*mh;
+    const pt=PX(c[1],c[0]);
     const lines=c[2].split('\n');
     lines.forEach((t,i)=>{
-      const yy=y+(i-(lines.length-1)/2)*15/zk;
-      ctx.lineWidth=3/zk;ctx.strokeStyle='rgba(255,255,255,0.78)';ctx.strokeText(t,x,yy);
-      ctx.fillStyle='rgba(15,25,60,0.95)';ctx.fillText(t,x,yy);
+      const yy=pt[1]+(i-(lines.length-1)/2)*15/zk;
+      ctx.lineWidth=3/zk;ctx.strokeStyle='rgba(255,255,255,0.78)';ctx.strokeText(t,pt[0],yy);
+      ctx.fillStyle='rgba(15,25,60,0.95)';ctx.fillText(t,pt[0],yy);
     });
   }
   ctx.textAlign='left';
@@ -925,12 +1108,21 @@ function drawOverlay(ME,MS,V,P,camE,t){
   ctx.clearRect(0,0,W,H);
   ctx.lineJoin='round';ctx.lineCap='round';
   const ph=((t%LOOP)+LOOP)%LOOP,sA=shellAlpha(ph);
+  /* 标注锚定矩阵：仅绕极轴旋转到相机方位（MS 另含 mRotZ(-phi*0.35) 俯仰倾转，会使锚点纬度
+     随视角漂移——俯视时 30°N 标签可漂到 20°N 环上）。纯方位锚定下锚点纬度恒等于带中心纬度，
+     锚点在相机经线 ±固定方位角处，任何视角都落在对应气压带/风带/纬线的实际投影区内 */
+  const MSLbl=mRotY(-cam.theta);
 
   /* 标注占位避让：气压带名称 / 风带名称 / 纬度标注按此顺序绘制，
      后绘制的若与已绘制的屏幕矩形重叠则跳过——季节移动使各带向极区汇聚时文字不再挤压 */
   const labOcc=[];
   const labHit=(x,y,hw,hh)=>labOcc.some(o=>Math.abs(x-o.x)<o.hw+hw&&Math.abs(y-o.y)<o.hh+hh);
   const labPut=(x,y,hw,hh)=>labOcc.push({x,y,hw,hh});
+  /* 碰撞回退：正位置被占时依次上下移位重试（极区纬度压缩使相邻带标注同高，直接跳过会缺名称） */
+  const labTry=(x,y,hw,hh)=>{
+    for(const dy of [0,-19,19,-38,38])if(!labHit(x,y+dy,hw,hh))return y+dy;
+    return null;
+  };
 
   /* --- 地表气压带：分颜色半透明填充带 + 名称标注（模式图下显示，面板可开关；
           填充带锚定地表随地球自转，标注锚定观察窗中央不随地球转动；随季节偏移移动） --- */
@@ -981,13 +1173,15 @@ function drawOverlay(ME,MS,V,P,camE,t){
       for(const b0 of BELTS){
       const b={lat:Math.max(-88,Math.min(88,b0.lat+SEASON_D)),hw:b0.hw,col:b0.col,name:b0.name};
       const [r,g,bl]=b.col;
-      if(b.lat+b.hw>=89.5||b.lat-b.hw<=-89.5){   /* 极地冠盖（80–90°N / 80–90°S） */
+      /* 极地高气压带：始终以极点为圆心的圆盘填充（圆盘从极点铺到赤道向边缘 rim）——
+         冬季 band 南移时旧条件 b.lat+hw>=89.5 不成立，85–90°N 极心区会留下空白；现在任何季节都盖住极心 */
+      if(Math.abs(b0.lat)>=80){
         const sg=b.lat>=0?1:-1;
         const pwP=rotVec(ME,sph(90*sg,0,1.006));
         const vs=occl(pwP,camE)*visSurf(pwP,camE);
         if(vs>0.03){
           const pp=project(pwP,V,P);
-          const rimLat=b.lat-sg*b.hw;              /* 赤道向边缘（80°N 等） */
+          const rimLat=b.lat-sg*b.hw;              /* 赤道向边缘（随季节移动：冬扩夏缩） */
           let rr=0;
           for(let lo=0;lo<360;lo+=10){
             const q=project(rotVec(ME,sph(rimLat,lo,1.006)),V,P);
@@ -1002,6 +1196,7 @@ function drawOverlay(ME,MS,V,P,camE,t){
           ctx.fillStyle='rgba('+r+','+g+','+bl+','+al.toFixed(3)+')';
           ctx.beginPath();ctx.arc(pp.x,pp.y,rr,0,2*Math.PI);ctx.fill();
           ctx.restore();
+          b.cap={pp,rr};                           /* 供名称标注定位（落在冠盖圆盘内） */
         }
       }else
       for(let lo=LO0;lo<LO1;lo+=ST){
@@ -1016,20 +1211,38 @@ function drawOverlay(ME,MS,V,P,camE,t){
         for(let k=1;k<4;k++)ctx.lineTo(P4[k].s.x,P4[k].s.y);
         ctx.closePath();ctx.fill();
       }
-      /* 名称标注：锚定在观察窗中央经度（-30°）的带中心处；投影过于挤压（近边缘叠字）时跳过 */
-      const pw=rotVec(MS,sph(b.lat,-30,1.015));
-      if(occl(pw,camE)>0.3){
-        const pp=project(pw,V,P);
-        if(Math.abs(pp.y-lastLy)>20){
+      /* 名称标注：普通带锚定相机经线以西 30° 方位角的带中心纬度处（MSLbl 纯方位锚定，
+         锚点纬度恒等于带中心纬度→任何视角都在带内）；临边处按 visSurf 软化淡出。
+         极地冠盖带与其统一：锚定冠盖盘纬向中心 (极点+rim)/2 —— rim 随季节伸缩，
+         标签随之随带移动；冠盖盘未绘制（极点不可见）时同样不显示标签 */
+      let lpp=null;
+      if(b.cap){
+        const sg2=b.lat>=0?1:-1;
+        const clat=sg2*(90-(90-Math.abs(b.lat-sg2*b.hw))/2);   /* (极点+rim)/2：盘的纬向中心 */
+        const pw=rotVec(MSLbl,sph(clat,-30,1.015));
+        if(occl(pw,camE)>0.3){
+          const f=Math.min(1,visSurf(pw,camE)*1.9);
+          if(f>0.06)lpp=project(pw,V,P),lpp.f=f;
+        }
+      }else{
+        const pw=rotVec(MSLbl,sph(b.lat,-30,1.015));
+        if(occl(pw,camE)>0.3){
+          const f=Math.min(1,visSurf(pw,camE)*1.9);
+          if(f>0.06)lpp=project(pw,V,P),lpp.f=f;
+        }
+      }
+      if(lpp){
+        if(Math.abs(lpp.y-lastLy)>20){
           ctx.font='bold 19px "Microsoft YaHei","PingFang SC",sans-serif';
           ctx.textAlign='center';ctx.textBaseline='middle';
           const hw=ctx.measureText(b.name).width/2;
-          if(!labHit(pp.x,pp.y,hw,12)){
-            lastLy=pp.y;labPut(pp.x,pp.y,hw,12);
-            ctx.lineWidth=4;ctx.strokeStyle='rgba(10,14,30,'+(0.55*sA).toFixed(3)+')';
-            ctx.strokeText(b.name,pp.x,pp.y);
-            ctx.fillStyle='rgba(255,130,130,'+(0.95*sA).toFixed(3)+')';
-            ctx.fillText(b.name,pp.x,pp.y);
+          const yy=labTry(lpp.x,lpp.y,hw,12);
+          if(yy!==null){
+            lastLy=yy;labPut(lpp.x,yy,hw,12);
+            ctx.lineWidth=4;ctx.strokeStyle='rgba(10,14,30,'+(0.55*sA*lpp.f).toFixed(3)+')';
+            ctx.strokeText(b.name,lpp.x,yy);
+            ctx.fillStyle='rgba(255,130,130,'+(0.95*sA*lpp.f).toFixed(3)+')';
+            ctx.fillText(b.name,lpp.x,yy);
           }
         }
       }
@@ -1086,22 +1299,25 @@ function drawOverlay(ME,MS,V,P,camE,t){
    }
   }
 
-  /* --- 风带名称：与上面的风带箭头共用「地表风带」开关（同时显示/隐藏）；随季节偏移移动 --- */
-  if(sA>0.03&&showWind&&mode===0){
+  /* --- 风带名称：独立「风带名称」按键控制（与风带箭头开关互不联动）；随季节偏移移动 --- */
+  if(sA>0.03&&showWindName&&mode===0){
     ctx.font='bold 17px "Microsoft YaHei","PingFang SC",sans-serif';
     ctx.textAlign='center';ctx.textBaseline='middle';
     for(const w of WIND_BAND_NAMES){
       const lat=Math.max(-88,Math.min(88,w.lat+SEASON_D));
-      const pw=rotVec(MS,sph(lat,WIND_NAME_LON,1.022));
+      const pw=rotVec(MSLbl,sph(lat,WIND_NAME_LON,1.022));
       if(occl(pw,camE)<0.3)continue;
+      const f=Math.min(1,visSurf(pw,camE)*1.9);
+      if(f<0.06)continue;
       const pp=project(pw,V,P);
       const hw=ctx.measureText(w.name).width/2;
-      if(labHit(pp.x+(w.dx||0),pp.y,hw,11))continue;
-      labPut(pp.x+(w.dx||0),pp.y,hw,11);
-      ctx.lineWidth=4;ctx.strokeStyle='rgba(6,16,34,'+(0.62*sA).toFixed(3)+')';
-      ctx.strokeText(w.name,pp.x+(w.dx||0),pp.y);
-      ctx.fillStyle='rgba(175,220,255,'+(0.95*sA).toFixed(3)+')';
-      ctx.fillText(w.name,pp.x+(w.dx||0),pp.y);
+      const yy=labTry(pp.x,pp.y,hw,11);
+      if(yy===null)continue;
+      labPut(pp.x,yy,hw,11);
+      ctx.lineWidth=4;ctx.strokeStyle='rgba(6,16,34,'+(0.62*sA*f).toFixed(3)+')';
+      ctx.strokeText(w.name,pp.x,yy);
+      ctx.fillStyle='rgba(175,220,255,'+(0.95*sA*f).toFixed(3)+')';
+      ctx.fillText(w.name,pp.x,yy);
     }
   }
 
@@ -1423,20 +1639,23 @@ function drawOverlay(ME,MS,V,P,camE,t){
     }
   }
 
-  /* --- 纬度标注：锚定观察窗右侧固定经度（不随地球自转/拖拽漂移），与纬线同纬（单圈环流页隐藏） --- */
+  /* --- 纬度标注：锚定相机经线以东固定方位角的纬线处（MSLbl 纯方位锚定，纬度不随视角漂移），
+          与纬线同纬（单圈环流页隐藏） --- */
   if(mode!==2){
     ctx.font='bold 13px "Microsoft YaHei","PingFang SC",sans-serif';
     ctx.textAlign='center';ctx.textBaseline='middle';
     for(const lat of LAT_LINES){
-    const pw=rotVec(MS,sph(lat,LAT_LBL_LON,1.02));
+    const pw=rotVec(MSLbl,sph(lat,LAT_LBL_LON,1.02));
     if(occl(pw,camE)<0.3)continue;
+    const f=Math.min(1,visSurf(pw,camE)*1.9);
+    if(f<0.06)continue;
     const pp=project(pw,V,P);
     const hw=ctx.measureText(latLineName(lat)).width/2;
     if(labHit(pp.x,pp.y,hw,9))continue;
     labPut(pp.x,pp.y,hw,9);
-    ctx.lineWidth=4;ctx.strokeStyle='rgba(6,16,34,0.62)';
+    ctx.lineWidth=4;ctx.strokeStyle='rgba(6,16,34,'+(0.62*f).toFixed(3)+')';
     ctx.strokeText(latLineName(lat),pp.x,pp.y);
-    ctx.fillStyle='rgba(205,230,255,0.92)';
+    ctx.fillStyle='rgba(205,230,255,'+(0.92*f).toFixed(3)+')';
     ctx.fillText(latLineName(lat),pp.x,pp.y);
   }
   }
@@ -1488,9 +1707,10 @@ window.addEventListener('wheel',e=>{
 function pickGeo(mx,my){
   if(mode!==1)return null;
   if(planOn){
-    const mw=Math.min(W,H*2),mh=mw/2,x0=(W-mw)/2,y0=(H-mh)/2;
+    const mw=Math.min(W,H/DP_HT)*PLAN_S,mh=mw*DP_HT,x0=(W-mw)/2,y0=(H-mh)/2;
     const wx=(mx-W/2-planPan.x)/planZoom+W/2,wy=(my-H/2-planPan.y)/planZoom+H/2;
-    return {lat:90-(wy-y0)/mh*180,lon:(wx-x0)/mw*360-180};
+    const r=unprojWT(((wx-x0)/mw)*2-1,(DP_HT-(wy-y0)/mh)*2*DP_HT);   /* Winkel tripel 逆投影 */
+    return r?{lat:r.lat,lon:r.lon}:null;
   }
   if(!slpOn)return null;
   const eye=[cam.dist*Math.cos(cam.phi)*Math.sin(cam.theta),cam.dist*Math.sin(cam.phi),cam.dist*Math.cos(cam.phi)*Math.cos(cam.theta)];
@@ -2085,6 +2305,8 @@ function frame(ts){
   const circRow=document.querySelector('#panel .prow[data-circ]');
   const circChk=document.getElementById('pCirc');
   circChk.addEventListener('change',()=>{circOn=circChk.checked;});
+  /* 「显示」行（地表风带/气压带/风带名称按钮）：仅三圈环流模式图显示 */
+  const showRow=document.querySelector('#panel .prow[data-show]');
   const tb=mk(tabEl,['单圈环流','三圈环流模式图','真实大气运动图'],0,i=>{
     mode=TAB_MODES[i];sync(tb,i);
     const c0=camInit(mode);                  /* 每页默认视角与视距（模式图按参考图：近赤道平视、地球更大） */
@@ -2096,6 +2318,7 @@ function frame(ts){
     setSoloRows(mode===2);   /* 自转/海陆复选框仅对单圈环流页显示 */
     jetRow.style.display=(mode===0)?'flex':'none';   /* 高空急流复选框仅模式图显示 */
     circRow.style.display=(mode===0)?'flex':'none';  /* 三圈环流复选框仅模式图显示 */
+    showRow.style.display=(mode===0)?'flex':'none';  /* 显示行（风带/气压带/风带名称按钮）仅模式图显示 */
     updateSlpUI();           /* 气压分布图复选框行随模式/月份显隐 */
   },'ptab');
   spinChk.checked=spinOn;
@@ -2106,10 +2329,11 @@ function frame(ts){
   /* 平面图复选框（真实大气运动图页）：勾选隐藏立体地球，以平面世界图显示气压场+风向+气压中心 */
   const planChk=document.getElementById('pPlan');
   planChk.addEventListener('change',()=>{planOn=planChk.checked;});
-  /* 地表风带 / 气压带 显示开关 */
-  const wBtn=document.getElementById('pWind'),bBtn=document.getElementById('pBelt');
+  /* 地表风带 / 气压带 / 风带名称 显示开关 */
+  const wBtn=document.getElementById('pWind'),bBtn=document.getElementById('pBelt'),wnBtn=document.getElementById('pWName');
   wBtn.addEventListener('click',()=>{showWind=!showWind;wBtn.classList.toggle('on',showWind);});
   bBtn.addEventListener('click',()=>{showBelts=!showBelts;bBtn.classList.toggle('on',showBelts);});
+  wnBtn.addEventListener('click',()=>{showWindName=!showWindName;wnBtn.classList.toggle('on',showWindName);});
   /* 面板收起/展开：贴左缘手柄，收起时面板整体滑出屏幕左侧 */
   const panelEl=document.getElementById('panel');
   const foldTab=document.getElementById('pFoldTab');
@@ -2209,6 +2433,7 @@ function frame(ts){
   setSoloRows(true);      /* 默认单圈环流页：显示自转/海陆复选框 */
   jetRow.style.display='none';   /* 默认单圈环流页：隐藏高空急流复选框 */
   circRow.style.display='none';  /* 默认单圈环流页：隐藏三圈环流复选框（仅模式图页显示） */
+  showRow.style.display='none';  /* 默认单圈环流页：隐藏显示行（仅模式图页显示） */
 })();
 
 init();
