@@ -52,23 +52,23 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
 <div id="wrap"><canvas id="gl" width="2990" height="1598" style="touch-action: none;"></canvas><canvas id="ov" width="2990" height="1598"></canvas></div>
 <div id="panel">
   <div class="ptablab">视图</div>
-  <div id="pTabs" class="pbtns"><button class="ptab">单圈环流</button><button class="ptab">三圈环流模式图</button><button class="ptab on">真实大气运动图</button></div>
+  <div id="pTabs" class="pbtns"><button class="ptab">单圈环流</button><button class="ptab on">三圈环流模式图</button><button class="ptab">真实大气运动图</button></div>
   <div class="prow" data-solo="" style="display: none;"><span class="plab">自转</span><label class="pchk"><input id="pSpin" type="checkbox" checked="checked"><span>地球自转</span></label></div>
   <div class="prow" data-solo="" style="display: none;"><span class="plab">海陆</span><label class="pchk"><input id="pLand" type="checkbox"><span>海陆分布</span></label></div>
   <div class="prow"><span class="plab">显示</span><button id="pWind" class="pbtn on">地表风带</button><button id="pBelt" class="pbtn on">气压带</button></div>
   <div class="prow"><span class="plab">视角</span><button id="pReset" class="pbtn">恢复视图</button></div>
-  <div class="prow" data-pat="" style="display: none;"><span class="plab">季节</span><button id="pDemo" class="pbtn">季节演示</button></div>
-  <div class="prow" data-jet="" style="display: none;"><span class="plab">急流</span><label class="pchk"><input id="pJet" type="checkbox"><span>高空急流</span></label></div>
-  <div class="prow" data-circ="" style="display: none;"><span class="plab">环流</span><label class="pchk"><input id="pCirc" type="checkbox" checked="checked"><span>三圈环流</span></label></div>
-  <div class="prow" data-pat="" style="display: none;"><span class="plab"></span><input id="pSeason" class="pslider" type="range" min="0" max="1" step="0.002" value="0.25"><span id="pSeasonVal" class="pval">春季</span></div>
-  <div class="slabels" data-pat="" style="display: none;"><span>冬</span><span class="on">春</span><span>夏</span><span>秋</span><span>冬</span></div>
-  <div class="prow" data-dyn="" style="display: flex;"><span class="plab">月份</span><select id="pMon" class="psel"><option value="0" selected="selected">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></div>
-  <div class="prow" data-dyn="" style="display: flex;"><span class="plab">高度</span><select id="pLev" class="psel"><option value="0" selected="selected">1000 hPa</option><option value="1">500 hPa</option><option value="2">200 hPa</option></select></div>
-  <div class="prow" data-dyn="" id="pSlpRow" style="display: flex;"><span class="plab">气压</span><label class="pchk"><input id="pSlp" type="checkbox"><span id="pSlpLab">1月海平面气压<br>与风向图</span></label></div>
-  <div class="prow" id="pPlanRow" style="display: flex;"><span class="plab">平面</span><label class="pchk"><input id="pPlan" type="checkbox" checked="checked"><span>平面图</span></label></div>
+  <div class="prow" data-pat="" style="display: flex;"><span class="plab">季节</span><button id="pDemo" class="pbtn">季节演示</button></div>
+  <div class="prow" data-jet="" style="display: flex;"><span class="plab">急流</span><label class="pchk"><input id="pJet" type="checkbox"><span>高空急流</span></label></div>
+  <div class="prow" data-circ="" style="display: flex;"><span class="plab">环流</span><label class="pchk"><input id="pCirc" type="checkbox" checked="checked"><span>三圈环流</span></label></div>
+  <div class="prow" data-pat="" style="display: flex;"><span class="plab"></span><input id="pSeason" class="pslider" type="range" min="0" max="1" step="0.002" value="0.25"><span id="pSeasonVal" class="pval">春季</span></div>
+  <div class="slabels" data-pat="" style="display: flex;"><span>冬</span><span class="on">春</span><span>夏</span><span>秋</span><span>冬</span></div>
+  <div class="prow" data-dyn="" style="display: none;"><span class="plab">月份</span><select id="pMon" class="psel"><option value="0" selected="selected">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></div>
+  <div class="prow" data-dyn="" style="display: none;"><span class="plab">高度</span><select id="pLev" class="psel"><option value="0" selected="selected">1000 hPa</option><option value="1">500 hPa</option><option value="2">200 hPa</option></select></div>
+  <div class="prow" data-dyn="" id="pSlpRow" style="display: none;"><span class="plab">气压</span><label class="pchk"><input id="pSlp" type="checkbox"><span id="pSlpLab">1月海平面气压<br>与风向图</span></label></div>
+  <div class="prow" id="pPlanRow" style="display: none;"><span class="plab">平面</span><label class="pchk"><input id="pPlan" type="checkbox"><span>平面图</span></label></div>
 </div>
 <button id="pFoldTab" title="收起 / 展开视图面板">‹</button>
-<div id="pTip" style="display: block; left: 788.5px; top: 347.5px;">1014 hPa（海平面气压）</div>
+<div id="pTip" style="display: none;"></div>
 <script>
 "use strict";
 /* ================= 基础数学（列主序） ================= */
@@ -613,8 +613,8 @@ function updateSeasonAnim(dt){
 /* ================= 相机 / 状态 ================= */
 const CAM0={theta:0,phi:0.035,dist:6.6};   /* 打开页面时的初始视角与距离（「恢复视图」按此复位） */
 const MODE_DIST={0:1,1:1,2:1.0526};        /* 单圈环流页地球整体缩小5%（视距×1/0.95） */
-/* 各页默认视角：三圈环流模式图按参考图——近赤道平视、地球更大（视距 6.3）；其余页沿用 CAM0 */
-const MODE_VIEW={0:{theta:0,phi:0.055,dist:6.3}};
+/* 各页默认视角：三圈环流模式图——近赤道平视、地球缩小0.9×（视距 7.0）、视角左移10°；其余页沿用 CAM0 */
+const MODE_VIEW={0:{theta:-10*Math.PI/180,phi:0.055,dist:7.0}};
 const camInit=m=>Object.assign({},MODE_VIEW[m]||{theta:CAM0.theta,phi:CAM0.phi,dist:CAM0.dist*MODE_DIST[m]});
 const cam=Object.assign({theta:CAM0.theta,phi:CAM0.phi,dist:CAM0.dist*MODE_DIST[2]});
 let spin=-16*D2R;          /* t=0 非洲正对相机（参考片开场）；spin 增大=地表特征向右（东向自转） */
