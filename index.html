@@ -50,11 +50,11 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
 </head>
 <body>
 <div id="wrap"><canvas id="gl" width="2990" height="1598" style="touch-action: none;"></canvas><canvas id="ov" width="2990" height="1598"></canvas></div>
-<div id="panel" class="folded">
+<div id="panel">
   <div class="ptablab">视图</div>
-  <div id="pTabs" class="pbtns"><button class="ptab">单圈环流</button><button class="ptab">三圈环流模式图</button><button class="ptab on">真实大气运动图</button></div>
-  <div class="prow" data-solo="" style="display: none;"><span class="plab">自转</span><label class="pchk"><input id="pSpin" type="checkbox" checked="checked"><span>地球自转</span></label></div>
-  <div class="prow" data-solo="" style="display: none;"><span class="plab">海陆</span><label class="pchk"><input id="pLand" type="checkbox"><span>海陆分布</span></label></div>
+  <div id="pTabs" class="pbtns"><button class="ptab on">单圈环流</button><button class="ptab">三圈环流模式图</button><button class="ptab">真实大气运动图</button></div>
+  <div class="prow" data-solo="" style="display: flex;"><span class="plab">自转</span><label class="pchk"><input id="pSpin" type="checkbox"><span>地球自转</span></label></div>
+  <div class="prow" data-solo="" style="display: flex;"><span class="plab">海陆</span><label class="pchk"><input id="pLand" type="checkbox"><span>海陆分布</span></label></div>
   <div class="prow" data-show="" style="display: none;"><span class="plab">显示</span><button id="pWind" class="pbtn on">地表风带</button><button id="pBelt" class="pbtn on">气压带</button><button id="pWName" class="pbtn on">风带名称</button></div>
   <div class="prow"><span class="plab">视角</span><button id="pReset" class="pbtn">恢复视图</button></div>
   <div class="prow" data-pat="" style="display: none;"><span class="plab">季节</span><button id="pDemo" class="pbtn">季节演示</button></div>
@@ -62,13 +62,13 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
   <div class="prow" data-circ="" style="display: none;"><span class="plab">环流</span><label class="pchk"><input id="pCirc" type="checkbox" checked="checked"><span>三圈环流</span></label></div>
   <div class="prow" data-pat="" style="display: none;"><span class="plab"></span><input id="pSeason" class="pslider" type="range" min="0" max="1" step="0.002" value="0.25"><span id="pSeasonVal" class="pval">春季</span></div>
   <div class="slabels" data-pat="" style="display: none;"><span>冬</span><span class="on">春</span><span>夏</span><span>秋</span><span>冬</span></div>
-  <div class="prow" data-dyn="" style="display: flex;"><span class="plab">月份</span><select id="pMon" class="psel"><option value="0">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6" selected="selected">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></div>
-  <div class="prow" data-dyn="" style="display: flex;"><span class="plab">高度</span><select id="pLev" class="psel"><option value="0" selected="selected">1000 hPa</option><option value="1">500 hPa</option><option value="2">200 hPa</option></select></div>
-  <div class="prow" data-dyn="" id="pSlpRow" style="display: flex;"><span class="plab">气压</span><label class="pchk"><input id="pSlp" type="checkbox" checked="checked"><span id="pSlpLab">7月海平面气压<br>与风向图</span></label></div>
-  <div class="prow" id="pPlanRow" style="display: flex;"><span class="plab">平面</span><label class="pchk"><input id="pPlan" type="checkbox" checked="checked"><span>平面图</span></label></div>
+  <div class="prow" data-dyn="" style="display: none;"><span class="plab">月份</span><select id="pMon" class="psel"><option value="0" selected="selected">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></div>
+  <div class="prow" data-dyn="" style="display: none;"><span class="plab">高度</span><select id="pLev" class="psel"><option value="0" selected="selected">1000 hPa</option><option value="1">500 hPa</option><option value="2">200 hPa</option></select></div>
+  <div class="prow" data-dyn="" id="pSlpRow" style="display: none;"><span class="plab">气压</span><label class="pchk"><input id="pSlp" type="checkbox"><span id="pSlpLab">1月海平面气压<br>与风向图</span></label></div>
+  <div class="prow" id="pPlanRow" style="display: none;"><span class="plab">平面</span><label class="pchk"><input id="pPlan" type="checkbox"><span>平面图</span></label></div>
 </div>
-<button id="pFoldTab" title="展开视图面板">›</button>
-<div id="pTip" style="display: none; left: 1272.5px; top: 408px;">1018 hPa（海平面气压）</div>
+<button id="pFoldTab" title="收起 / 展开视图面板">‹</button>
+<div id="pTip" style="display: none;"></div>
 <script>
 "use strict";
 /* ================= 基础数学（列主序） ================= */
