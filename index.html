@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="zh-CN">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>三圈环流动画</title>
@@ -49,26 +49,26 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
 </style>
 </head>
 <body>
-<div id="wrap"><canvas id="gl" width="2990" height="1598" style="touch-action: none;"></canvas><canvas id="ov" width="2990" height="1598"></canvas></div>
+<div id="wrap"><canvas id="gl"></canvas><canvas id="ov"></canvas></div>
 <div id="panel">
   <div class="ptablab">视图</div>
-  <div id="pTabs" class="pbtns"><button class="ptab on">单圈环流</button><button class="ptab">三圈环流模式图</button><button class="ptab">真实大气运动图</button></div>
-  <div class="prow" data-solo="" style="display: flex;"><span class="plab">自转</span><label class="pchk"><input id="pSpin" type="checkbox"><span>地球自转</span></label></div>
-  <div class="prow" data-solo="" style="display: flex;"><span class="plab">海陆</span><label class="pchk"><input id="pLand" type="checkbox"><span>海陆分布</span></label></div>
-  <div class="prow" data-show="" style="display: none;"><span class="plab">显示</span><button id="pWind" class="pbtn on">地表风带</button><button id="pBelt" class="pbtn on">气压带</button><button id="pWName" class="pbtn on">风带名称</button></div>
+  <div id="pTabs" class="pbtns"></div>
+  <div class="prow" data-solo><span class="plab">自转</span><label class="pchk"><input id="pSpin" type="checkbox"><span>地球自转</span></label></div>
+  <div class="prow" data-solo><span class="plab">海陆</span><label class="pchk"><input id="pLand" type="checkbox"><span>海陆分布</span></label></div>
+  <div class="prow" data-show><span class="plab">显示</span><button id="pWind" class="pbtn on">地表风带</button><button id="pBelt" class="pbtn on">气压带</button><button id="pWName" class="pbtn on">风带名称</button></div>
   <div class="prow"><span class="plab">视角</span><button id="pReset" class="pbtn">恢复视图</button></div>
-  <div class="prow" data-pat="" style="display: none;"><span class="plab">季节</span><button id="pDemo" class="pbtn">季节演示</button></div>
-  <div class="prow" data-jet="" style="display: none;"><span class="plab">急流</span><label class="pchk"><input id="pJet" type="checkbox"><span>高空急流</span></label></div>
-  <div class="prow" data-circ="" style="display: none;"><span class="plab">环流</span><label class="pchk"><input id="pCirc" type="checkbox" checked="checked"><span>三圈环流</span></label></div>
-  <div class="prow" data-pat="" style="display: none;"><span class="plab"></span><input id="pSeason" class="pslider" type="range" min="0" max="1" step="0.002" value="0.25"><span id="pSeasonVal" class="pval">春季</span></div>
-  <div class="slabels" data-pat="" style="display: none;"><span>冬</span><span class="on">春</span><span>夏</span><span>秋</span><span>冬</span></div>
-  <div class="prow" data-dyn="" style="display: none;"><span class="plab">月份</span><select id="pMon" class="psel"><option value="0" selected="selected">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></div>
-  <div class="prow" data-dyn="" style="display: none;"><span class="plab">高度</span><select id="pLev" class="psel"><option value="0" selected="selected">1000 hPa</option><option value="1">500 hPa</option><option value="2">200 hPa</option></select></div>
-  <div class="prow" data-dyn="" id="pSlpRow" style="display: none;"><span class="plab">气压</span><label class="pchk"><input id="pSlp" type="checkbox"><span id="pSlpLab">1月海平面气压<br>与风向图</span></label></div>
-  <div class="prow" id="pPlanRow" style="display: none;"><span class="plab">平面</span><label class="pchk"><input id="pPlan" type="checkbox"><span>平面图</span></label></div>
+  <div class="prow" data-pat><span class="plab">季节</span><button id="pDemo" class="pbtn">季节演示</button></div>
+  <div class="prow" data-jet><span class="plab">急流</span><label class="pchk"><input id="pJet" type="checkbox"><span>高空急流</span></label></div>
+  <div class="prow" data-circ><span class="plab">环流</span><label class="pchk"><input id="pCirc" type="checkbox" checked><span>三圈环流</span></label></div>
+  <div class="prow" data-pat><span class="plab"></span><input id="pSeason" class="pslider" type="range" min="0" max="1" step="0.002" value="0.25"><span id="pSeasonVal" class="pval">春季</span></div>
+  <div class="slabels" data-pat><span>冬</span><span>春</span><span>夏</span><span>秋</span><span>冬</span></div>
+  <div class="prow" data-dyn><span class="plab">月份</span><select id="pMon" class="psel"></select></div>
+  <div class="prow" data-dyn><span class="plab">高度</span><select id="pLev" class="psel"></select></div>
+  <div class="prow" data-dyn id="pSlpRow"><span class="plab">气压</span><label class="pchk"><input id="pSlp" type="checkbox"><span id="pSlpLab">1月海平面气压<br>与风向图</span></label></div>
+  <div class="prow" id="pPlanRow"><span class="plab">平面</span><label class="pchk"><input id="pPlan" type="checkbox"><span>平面图</span></label></div>
 </div>
 <button id="pFoldTab" title="收起 / 展开视图面板">‹</button>
-<div id="pTip" style="display: none;"></div>
+<div id="pTip"></div>
 <script>
 "use strict";
 /* ================= 基础数学（列主序） ================= */
@@ -99,7 +99,15 @@ function sph(latDeg,lonDeg,r){const la=latDeg*D2R,lo=lonDeg*D2R;
 
 /* ================= WebGL 初始化 ================= */
 const cv=document.getElementById('gl');
-const gl=cv.getContext('webgl',{antialias:true,alpha:false});
+const gl=cv.getContext('webgl',{antialias:true,alpha:false})||cv.getContext('experimental-webgl',{antialias:true,alpha:false});
+if(!gl){
+  cv.style.display='none';
+  const tip=document.createElement('div');
+  tip.style.cssText='position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#000;color:#eee;font:16px/1.8 sans-serif;text-align:center;padding:24px;z-index:999';
+  tip.innerHTML='当前浏览器不支持 WebGL，3D 内容无法显示。<br>请尝试：<br>1. 使用 Chrome / Edge / Safari 等现代浏览器打开；<br>2. 在浏览器设置中开启「硬件加速」（Chrome: 设置→系统→使用硬件加速）；<br>3. 若在微信/QQ 内打开，请选择「在浏览器中打开」。';
+  document.body.appendChild(tip);
+  throw new Error('WebGL not supported');
+}
 gl.getExtension('OES_standard_derivatives');
 function mkProg(vs,fs){
   const p=gl.createProgram();
@@ -2454,6 +2462,16 @@ window.__domeH=lat=>domeH(lat);   /* 调试：大气厚度剖面（单圈环流�
 window.__windSpans=()=>WIND_ARROWS.map(a=>{const l1=a.lat0+SEASON_D,l2=a.lat0+SEASON_D+a.d[0]*a.len;return [Math.min(l1,l2),Math.max(l1,l2)];});
 window.__seasonState=()=>({d:SEASON_D,t:SEASON_T,sails:sails.length,loops:loops.length,belts:belts.length,topLat:Math.max(...loops.map(l=>l.latB))});
 window.__seasonSet=d=>setSeason(d);   /* 调试：任意目标偏移（走缓动） */
+
+/* 启动期未捕获错误提示（便于远程排查 3D 不显示问题） */
+window.addEventListener('error',e=>{
+  if(window.__errShown)return; window.__errShown=true;
+  const tip=document.createElement('div');
+  tip.style.cssText='position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#5a1a1a;color:#ffd;border:1px solid #a55;border-radius:8px;padding:10px 16px;font:13px/1.6 sans-serif;z-index:9999;max-width:90vw';
+  tip.textContent='页面脚本出错，3D 可能无法显示：'+(e.message||e.type)+'（刷新或更换浏览器可尝试恢复）';
+  document.body.appendChild(tip);
+});
+
 /* 检视用：当前季节下各纬带的实际纬度（三圈环流圈 / 地表气压带 / 风带箭头） */
 window.__beltLats=()=>({
   d:SEASON_D,
@@ -2464,6 +2482,5 @@ window.__beltLats=()=>({
 window.__uPetA=v=>{DBG_PETA=v;};
 let DBG_GRID=null,DBG_PETA=null;
 </script>
-
-
-</body></html>
+</body>
+</html>
